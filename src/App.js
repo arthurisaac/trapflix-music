@@ -13,6 +13,8 @@ import SongInfo from "./components/songInfo";
 import AudioPlayer from "./AudioPlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Nav, Navbar} from "react-bootstrap";
+import About from "./components/about";
+import Login from "./components/login";
 
 const App = () => {
     const [featured, setFeatured] = useState([]);
@@ -37,8 +39,9 @@ const App = () => {
                              className="d-inline-block align-text-top" />
                     </Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/about">about</Nav.Link>
+                        <Nav.Link><Link to="/" style={{color: "#fff"}}>Home</Link></Nav.Link>
+                        <Nav.Link><Link to="/login" style={{color: "#fff"}}>Login</Link></Nav.Link>
+                        <Nav.Link><Link to="/about" style={{color: "#fff"}}>About</Link></Nav.Link>
                     </Nav>
                 </Navbar>
                 <br />
@@ -56,6 +59,9 @@ const App = () => {
                 <Switch>
                     <Route path="/about">
                         <About/>
+                    </Route>
+                    <Route path="/login">
+                        <Login/>
                     </Route>
                     <Route path="/info/:songId">
                         <SongInfo ref={audioPlayer}/>
@@ -87,9 +93,5 @@ const App = () => {
         </div>
     );
 };
-
-function About() {
-    return <h2>About</h2>;
-}
 
 export default App;
