@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
+.trapflix-audio--player {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.trapflix-audio--player audio {
+	border: 1px solid;
+	background: #f1f3f4;
+	padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-title {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.home-title h3 {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 1.39;
+	text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.home-title--divider {
+	width: 120px;
+	height: 2px;
+	background-color: red;
+	margin: 1em auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home-song {
+
+}
+
+.home-song--cover {
+	border-radius: 5px !important;
+	padding: 0;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .24);
+}
+
+
+.home-song--info {
+	overflow: hidden;
+}
+
+.home-song--title {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.38;
+	letter-spacing: 0;
+	outline: 0;
+	text-decoration: none;
+	overflow: hidden;
+	transition: color .3s;
+	white-space: nowrap;
+	margin-top: 10px;
+	/*margin-bottom: 4px;*/
+	color: black;
+	text-decoration: none;
+}
+
+.home-song--title:hover {
+	transition: margin 3.5s ease 0s;
+	margin-left: -100px;
+	color: #0b2e13;
+	font-style: normal;
+	text-decoration: none;
+}
+
+/*
+Detail song
+ */
+
+.detail-song--cover {
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.detail-song--album {
+	color: #757575;
+	font-style: italic;
+}
+
+.detail-song--cover img {
+	width: 100%;
+	box-shadow: 0 0 2px 1px #212121;
+}
+
+@media screen and (min-width: 44em) {
+	.detail-song--cover {
+		width: 252px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+input[type="range"] {
+	height: 5px;
+	-webkit-appearance: none;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	background: #3b7677;
+	transition: background 0.2s ease;
+	cursor: pointer;
+	flex-grow: 1;
+}
+
+.audio-player {
+	width: 100%;
+	padding: 24px;
+	border-radius: 20px;
+	box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+	margin: auto;
+	color: #000000;
+	background: white;
+	display: flex;
+	align-items: center;
+}
+
+.artwork {
+	border-radius: 120px;
+	display: block;
+	margin: auto;
+	height: 50px;
+	width: 50px;
+}
+
+.track-info {
+	text-align: center;
+	z-index: 1;
+	position: relative;
+	display: flex;
+}
+
+.track-info--artist {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.title {
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.artist {
+	font-weight: 300;
+	margin: 0;
+	text-align: start;
+}
+
+.audio-controls {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.audio-controls .prev svg,
+.audio-controls .next svg {
+	width: 15px;
+	height: 15px;
+}
+
+.audio-controls .play svg,
+.audio-controls .pause svg {
+	height: 20px;
+	width: 20px;
+}
+
+.audio-controls path {
+	fill: #000000;
+}
+
+.color-backdrop {
+	background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
 }
