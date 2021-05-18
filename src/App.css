@@ -44,7 +44,13 @@
 	margin-bottom: 1rem;
 	color: #000000;
 }
-
+.home-song--play {
+	position: relative;
+	top: 100px;
+	color: #fff;
+	background: aqua;
+	display: none;
+}
 .home-song a{
 	margin-bottom: 1rem;
 	color: #000000;
@@ -60,10 +66,9 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .24);
 }
 
-.home-song--cover:hover {
+.home-song--cover:hover{
 	filter: blur(2px);
 }
-
 
 .home-song--info {
 	overflow: hidden;
@@ -138,7 +143,6 @@ button {
 input[type="range"] {
 	height: 5px;
 	-webkit-appearance: none;
-	margin-bottom: 10px;
 	border-radius: 8px;
 	background: #3b7677;
 	transition: background 0.2s ease;
@@ -223,14 +227,4 @@ Audio player
 
 .audio-controls path {
 	fill: #000000;
-}
-
-.color-backdrop {
-	background: linear-gradient(45deg, var(--active-color) 20%, transparent 100%) no-repeat;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
 }

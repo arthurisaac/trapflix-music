@@ -55,6 +55,7 @@ class AudioPlayer extends React.Component {
         this.audioEl.current.pause();
         this.audioEl.current.src = base_url + song.song_name;
         this.audioEl.current.play();
+        this.startTimer();
     }
 
     componentDidMount() {
@@ -137,7 +138,7 @@ class AudioPlayer extends React.Component {
                 duration: this.audioEl.current.duration,
                 isPlaying: true
             });*/
-            //this.startTimer();
+            this.startTimer();
         }
     }
 
@@ -163,8 +164,9 @@ class AudioPlayer extends React.Component {
     }
 
     player() {
-        const {song_thumbnail, song_title, song_artist, trackProgress, currentPercentage, duration} = this.state.song;
-        const trackStyling = `-webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #0075ff), color-stop(${currentPercentage}, #777))`;
+        const {song_thumbnail, song_title, song_artist,} = this.state.song;
+        const { trackProgress, currentPercentage, duration} = this.state;
+        const trackStyling = `-webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, red), color-stop(${currentPercentage}, #777))`;
 
         return (
             <div>
@@ -189,7 +191,7 @@ class AudioPlayer extends React.Component {
                         onPlayPauseClick={() => {
                             if (this.audioEl.current.paused) {
                                 this.setState({
-                                   isPlaying: true
+                                    isPlaying: true
                                 });
                                 this.audioEl.current.play();
                             } else {
@@ -200,15 +202,18 @@ class AudioPlayer extends React.Component {
                             }
                         }}
                     />
-                    {/*<input
+                    <input
                         type="range"
                         value={trackProgress}
                         step="1"
                         min="0"
-                        max={duration ? duration : `${duration}`}
+                        max={this.audioEl.current.duration ? this.audioEl.current.duration : `${duration}`}
                         className="progress"
+                        onChange={(e) => this.onScrub(e.target.value)}
+                        onMouseUp={() => this.onScrubEnd()}
+                        onKeyUp={() => this.onScrubEnd()}
                         style={{background: trackStyling}}
-                    />*/}
+                    />
                 </div> : <div>Not playing</div>
                 }
                 <audio
@@ -223,23 +228,42 @@ class AudioPlayer extends React.Component {
         );
     }
 
-    /*startTimer = () => {
-        // Clear any timers already running
+    onScrub(value) {
         clearInterval(this.intervalRef.current);
+        this.audioEl.current.currentTime = value;
+        this.setState({
+            trackProgress: this.audioEl.current.currentTime
+        });
+    }
 
+    onScrubEnd = () => {
+        // If not already playing, start
+
+        if (!this.state.isPlaying) {
+            this.setState({
+                isPlaying: false,
+            });
+        }
+        this.startTimer();
+    };
+
+    startTimer() {
+        clearInterval(this.intervalRef.current);
         this.intervalRef.current = setInterval(() => {
-            if (this.audioEl.current.ended) {
-                //TODO toNextTrack();
+            const {duration} = this.audioEl.current;
+            if (this.audioEl.current && this.audioEl.current.ended) {
+                //toNextTrack();
             } else {
                 this.setState({
                     trackProgress: this.audioEl.current.currentTime,
-                    currentPercentage: this.state.duration
-                        ? `${(this.state.trackProgress / this.state.duration) * 100}%`
+                    currentPercentage: duration
+                        ? `${(this.state.trackProgress / duration) * 100}%`
                         : "0%"
-                });
+                })
+                //console.log(this.state.trackProgress)
             }
         }, [1000]);
-    };*/
+    }
 
     render() {
         return this.player();

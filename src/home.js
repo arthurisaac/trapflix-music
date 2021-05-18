@@ -40,6 +40,9 @@ const Home = () => {
 
                                     }}>
                                         <Link to={"/info/" + music.song_id}>
+                                            <div className="home-song--play">
+                                                Play
+                                            </div>
                                             <div>
                                                 <img src={base_url + music.song_thumbnail} alt=""
                                                      className="border-0 img-thumbnail home-song--cover" style={{padding:0}}/>
