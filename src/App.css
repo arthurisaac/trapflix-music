@@ -1,3 +1,13 @@
+.section-playlist {
+	background-color: #d6d8db;
+}
+
+.section {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding: 20px;
+}
+
 .trapflix-audio--player {
 	position: fixed;
 	bottom: 0;
@@ -31,7 +41,17 @@
 }
 
 .home-song {
+	margin-bottom: 1rem;
+	color: #000000;
+}
 
+.home-song a{
+	margin-bottom: 1rem;
+	color: #000000;
+}
+.home-song a:hover{
+	text-decoration: none;
+	color: #000000;
 }
 
 .home-song--cover {
@@ -40,9 +60,18 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .24);
 }
 
+.home-song--cover:hover {
+	filter: blur(2px);
+}
+
 
 .home-song--info {
 	overflow: hidden;
+	text-align: start;
+}
+
+.home-song--info a {
+	text-decoration: none;
 }
 
 .home-song--title {
@@ -54,7 +83,6 @@
 	line-height: 1.38;
 	letter-spacing: 0;
 	outline: 0;
-	text-decoration: none;
 	overflow: hidden;
 	transition: color .3s;
 	white-space: nowrap;
@@ -148,6 +176,7 @@ input[type="range"] {
 .track-info--artist {
 	margin-left: 20px;
 	margin-right: 20px;
+	text-align: start;
 }
 
 .title {
@@ -160,7 +189,19 @@ input[type="range"] {
 	margin: 0;
 	text-align: start;
 }
+.detail-song--title {
 
+}
+
+@media screen and (max-width: 400px) {
+	.detail-song--title {
+		font-size: 20px;
+	}
+}
+
+/*
+Audio player
+ */
 .audio-controls {
 	display: flex;
 	justify-content: space-between;

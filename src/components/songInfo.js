@@ -37,12 +37,12 @@ const SongInfo = React.forwardRef((props, ref) => {
                 {
                     song ? (<div>
                         <div className="row">
-                            <div className="col-4">
+                            <div className="col-sm-3">
                                 <img src={base_url + song.song_thumbnail} alt="" className="border-0 img-thumbnail"/>
                             </div>
-                            <div className="col-8">
+                            <div className="col-sm">
                                 <div className="container">
-                                    <h1>{song.song_title}</h1>
+                                    <h1 className="detail-song--title">{song.song_title}</h1>
                                     <div>{song.song_artist}</div>
                                     <p className="detail-song--album">{song.song_album}</p>
                                     <div>
