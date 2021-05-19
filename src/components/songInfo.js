@@ -1,14 +1,14 @@
 import {
     useParams
 } from "react-router-dom";
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import {base_url} from "../constants";
 import "../css/bootstrap.min.css";
 
 const SongInfo = React.forwardRef((props, ref) => {
     let {songId} = useParams();
     const [song, setSong] = useState({});
-    const [errorSong, setErrorSong] = useState({});
+    //const [errorSong, setErrorSong] = useState({});
     //const [isPlaying, setIsPlaying] = useState("");
     //const [audioPlayer, setAudioPlayer] = useState(null);
     const fetchSong = async () => {
@@ -17,8 +17,9 @@ const SongInfo = React.forwardRef((props, ref) => {
         setSong(data);
     };
     useEffect(() => {
-        fetchSong().then(() => ('')).catch(() => setErrorSong(true));
-    }, []);
+        //fetchSong().then(() => ('')).catch(() => setErrorSong(true));
+        fetchSong().then(() => (''));
+    }, );
 
     useEffect(() => {
 

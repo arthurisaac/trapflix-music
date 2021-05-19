@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import {
     useParams
 } from "react-router-dom";
@@ -15,11 +15,14 @@ const AlbumDetails = React.forwardRef((props, ref) => {
     };
     useEffect(() => {
         fetchSong().then(() => ('')).catch(() => setErrorAlbum(true));
-    }, []);
+    }, );
 
     return <div>
         <div className="container">
             <div className="container">
+                {
+                    errorAlbum ? <div>Somthing wrong</div> : <div></div>
+                }
                 {
                     album ? (<div>
                         <div className="row">

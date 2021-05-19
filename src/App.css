@@ -1,5 +1,28 @@
 .section-playlist {
-	background-color: #d6d8db;
+	background-color: #eeeeee;
+}
+
+.section-footer {
+	background-color: #eeeeee;
+}
+
+.section-exclusive {
+	background-color: #ff000099;
+}
+
+.section-exclusive h3{
+	color: #ffffff;
+}
+
+.section-events {
+	background-size: cover;
+	background: url("./assets/event.png") center;
+	height: 70vh;
+	color: #ffffff;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-transform: uppercase;
 }
 
 .section {
@@ -67,7 +90,7 @@
 }
 
 .home-song--cover:hover{
-	filter: blur(2px);
+	filter: blur(1px);
 }
 
 .home-song--info {

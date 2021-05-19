@@ -8,8 +8,7 @@ const Home = () => {
     const [errorAds, setErrorAds] = useState(false);
     const [featured, setFeatured] = useState([]);
     const [errorFeatured, setErrorFeatured] = useState(false);
-    const [currentMusic, setCurrentMusic] = useState("");
-    const [audioPlayer, setAudioPlayer] = useState(null);
+    const [audioPlayer] = useState(null);
     useEffect(() => {
         fetchFeatured().then(() => ('')).catch(() => setErrorFeatured(true));
     }, []);
@@ -39,6 +38,9 @@ const Home = () => {
         <div className="App">
             <br/>
             {
+                errorAds ? <div>Something wrong</div> : <div/>
+            }
+            {
                 ads.length > 0 ? <Carousel slides={adSlides()} autoplay={true} interval={3000}/> : <div/>
             }
             <br/>
@@ -55,7 +57,6 @@ const Home = () => {
                                 featured.map((music, index) => (music.section?.toLowerCase() === "Featured Music".toLowerCase()) ?
                                     <div key={index} className="col-6 col-sm-3 home-song" onDoubleClick={() => {
                                         audioPlayer.audioEl.current.pause();
-                                        setCurrentMusic(music.song_name)
                                         audioPlayer.audioEl.current.src = music.song_name;
 
                                     }}>
@@ -81,7 +82,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section section-playlist">
+            <div className="section section-playlist"  style={{marginBottom: 0}}>
                 <div className="home-title">
                     <h3>Popular Playlists</h3>
                     <div className="home-title--divider"/>
@@ -99,6 +100,18 @@ const Home = () => {
                 </div>
             </div>
 
+            <div className="section section-exclusive" style={{marginTop: 0}}>
+                <div className="home-title">
+                    <h3>EXCLUSIVE VIDEOS</h3>
+                    <div className="home-title--divider"/>
+                </div>
+                <br/>
+                <div className="text-center">
+                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                    </iframe>
+                </div>
+            </div>
+
             <div className="section">
                 <div className="home-title">
                     <h3>Trending singles</h3>
@@ -106,6 +119,21 @@ const Home = () => {
                 </div>
                 <div className="container text-center">
                     <img src="coming-soon.png" alt="coming soon" width="400" style={{margin: 0}}/>
+                </div>
+            </div>
+
+            <div className="section section-events">
+                <div>
+                    <h3>Wanna be the next star?</h3>
+                    <Link to="/login" className="btn btn-light">Upload your work</Link>
+                </div>
+
+            </div>
+
+            <div className="section section-footer">
+                <hr/>
+                <div className="container">
+                    <p className="text-right">© Trapflix Music 2021</p>
                 </div>
             </div>
 

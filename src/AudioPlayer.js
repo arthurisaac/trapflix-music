@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React from "react";
 import AudioControls from "./AudioControls";
 import "./App.css";
 
@@ -213,7 +213,7 @@ class AudioPlayer extends React.Component {
                         onKeyUp={() => this.onScrubEnd()}
                         style={{background: trackStyling}}
                     />
-                </div> : <div>Not playing</div>
+                </div> : <div></div>
                 }
                 <audio
                     autoPlay={true}
