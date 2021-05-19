@@ -1,5 +1,4 @@
 import {base_url} from "./constants";
-import ReactAudioPlayer from "react-audio-player";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {Carousel} from '3d-react-carousal';
@@ -10,7 +9,6 @@ const Home = () => {
     const [featured, setFeatured] = useState([]);
     const [errorFeatured, setErrorFeatured] = useState(false);
     const [currentMusic, setCurrentMusic] = useState("");
-    const [isPlaying, setIsPlaying] = useState("");
     const [audioPlayer, setAudioPlayer] = useState(null);
     useEffect(() => {
         fetchFeatured().then(() => ('')).catch(() => setErrorFeatured(true));
@@ -33,18 +31,16 @@ const Home = () => {
     };
 
     const adSlides = () => {
-        const list = ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={base_url + ad.cover} alt="" className="slide-image"/></Link>)
+        const list = ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={ad.cover} alt="" className="slide-image"/></Link>)
         return list;
     };
 
     return (
         <div className="App">
             <br/>
-            <div style={{height: 250}}>
-                {
-                    ads.length > 0 ? <Carousel slides={adSlides()} autoplay={true} interval={3000}/> : <div/>
-                }
-            </div>
+            {
+                ads.length > 0 ? <Carousel slides={adSlides()} autoplay={true} interval={3000}/> : <div/>
+            }
             <br/>
             <div className="section">
                 <div className="home-title">
@@ -59,8 +55,8 @@ const Home = () => {
                                 featured.map((music, index) => (music.section?.toLowerCase() === "Featured Music".toLowerCase()) ?
                                     <div key={index} className="col-6 col-sm-3 home-song" onDoubleClick={() => {
                                         audioPlayer.audioEl.current.pause();
-                                        setCurrentMusic(base_url + music.song_name)
-                                        audioPlayer.audioEl.current.src = base_url + music.song_name;
+                                        setCurrentMusic(music.song_name)
+                                        audioPlayer.audioEl.current.src = music.song_name;
 
                                     }}>
                                         <Link to={"/info/" + music.song_id}>
@@ -68,7 +64,7 @@ const Home = () => {
                                                 Play
                                             </div>
                                             <div>
-                                                <img src={base_url + music.song_thumbnail} alt=""
+                                                <img src={music.song_thumbnail} alt=""
                                                      className="border-0 img-thumbnail home-song--cover"
                                                      style={{padding: 0}}/>
                                             </div>

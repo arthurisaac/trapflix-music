@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import AudioControls from "./AudioControls";
 import "./App.css";
-import {base_url} from "./constants";
 
 
 class AudioPlayer extends React.Component {
@@ -53,7 +52,7 @@ class AudioPlayer extends React.Component {
             isPresent: true,
         });
         this.audioEl.current.pause();
-        this.audioEl.current.src = base_url + song.song_name;
+        this.audioEl.current.src = song.song_name;
         this.audioEl.current.play();
         this.startTimer();
     }
@@ -174,7 +173,7 @@ class AudioPlayer extends React.Component {
                     <div className="track-info">
                         <img
                             className="artwork"
-                            src={base_url + song_thumbnail}
+                            src={song_thumbnail}
                             alt={`track artwork for ${song_title} by ${song_artist}`}
                         />
                         <div className="track-info--artist">

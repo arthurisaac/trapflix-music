@@ -32,7 +32,7 @@ const SongInfo = React.forwardRef((props, ref) => {
                     song ? (<div>
                         <div className="row">
                             <div className="col-sm-3">
-                                <img src={base_url + song.song_thumbnail} alt="" className="border-0 img-thumbnail"/>
+                                <img src={song.song_thumbnail} alt="" className="border-0 img-thumbnail"/>
                             </div>
                             <div className="col-sm">
                                 <div className="container">
