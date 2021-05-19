@@ -1,7 +1,5 @@
 import './App.css';
-import {base_url} from "./constants";
-import ReactAudioPlayer from "react-audio-player";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,12 +13,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Nav, Navbar} from "react-bootstrap";
 import About from "./components/about";
 import Login from "./components/login";
+import AlbumDetails from "./components/albumsDetails";
 
 const App = () => {
-    const [featured, setFeatured] = useState([]);
+    //const [featured, setFeatured] = useState([]);
     const [audioPlayer, setAudioPlayer] = useState(null);
 
-    useEffect(() => {
+    /*useEffect(() => {
         fetchFeatured().then(() => (''));
     }, []);
 
@@ -28,7 +27,7 @@ const App = () => {
         const response = await fetch(`${base_url}musics/songs_by_sections`);
         const data = await response.json();
         setFeatured(data);
-    };
+    };*/
 
     return (
         <div className="App">
@@ -65,6 +64,9 @@ const App = () => {
                     </Route>
                     <Route path="/info/:songId">
                         <SongInfo ref={audioPlayer}/>
+                    </Route>
+                    <Route path="/album/:albumId">
+                        <AlbumDetails ref={audioPlayer}/>
                     </Route>
                     <Route path="/">
                         <Home/>

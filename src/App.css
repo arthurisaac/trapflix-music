@@ -228,3 +228,10 @@ Audio player
 .audio-controls path {
 	fill: #000000;
 }
+
+.slide-image {
+	height: 250px;
+	width: 100%;
+	object-fit: contain;
+	background: #000;
+}

@@ -1,21 +1,15 @@
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
     useParams
 } from "react-router-dom";
 import React, {useEffect, useState, useRef} from "react";
 import {base_url} from "../constants";
 import "../css/bootstrap.min.css";
-import ReactAudioPlayer from "react-audio-player";
 
 const SongInfo = React.forwardRef((props, ref) => {
     let {songId} = useParams();
     const [song, setSong] = useState({});
     const [errorSong, setErrorSong] = useState({});
-    const [isPlaying, setIsPlaying] = useState("");
+    //const [isPlaying, setIsPlaying] = useState("");
     //const [audioPlayer, setAudioPlayer] = useState(null);
     const fetchSong = async () => {
         const response = await fetch(`${base_url}musics/get_song/${songId}`);
@@ -43,10 +37,11 @@ const SongInfo = React.forwardRef((props, ref) => {
                             <div className="col-sm">
                                 <div className="container">
                                     <h1 className="detail-song--title">{song.song_title}</h1>
+                                    <br/>
                                     <div>{song.song_artist}</div>
                                     <p className="detail-song--album">{song.song_album}</p>
                                     <div>
-                                        <button className="btn btn-outline-dark btn-sm" onClick={() => {
+                                        <button className="btn btn-outline-dark btn-sm" style={{width: 100}} onClick={() => {
                                             //ref.audioEl.current.pause();
                                             //ref.audioEl.current.src = base_url + song.song_name;
                                             ref.onNewSong(song);
