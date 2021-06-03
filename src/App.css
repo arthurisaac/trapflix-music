@@ -258,3 +258,52 @@ Audio player
 	object-fit: contain;
 	background: #000;
 }
+
+.album-list {
+	padding: 10px;
+}
+
+.album-list-item {
+	display: flex;
+	justify-content: space-between;
+}
+
+.album-list-item--details {
+	display: flex;
+}
+
+.album-list-item--details--index {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.album-list-item--song {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.album-list-item--play {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.album-list-item--song h6{
+	margin: 0;
+}
+
+.album-list-item--separator {
+	height: 1px;
+	width: 100%;
+	background-color: rgba(0,0,0,.1);
+}
+
+.highlight {
+	background-color: #f8f9fa;
+	padding: 1rem;
+}

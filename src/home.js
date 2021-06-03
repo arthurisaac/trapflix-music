@@ -30,7 +30,8 @@ const Home = () => {
     };
 
     const adSlides = () => {
-        const list = ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={ad.cover} alt="" className="slide-image"/></Link>)
+        const list = ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={ad.cover} alt=""
+                                                                              className="slide-image"/></Link>)
         return list;
     };
 
@@ -55,25 +56,24 @@ const Home = () => {
                         {
                             errorFeatured ? <div>No featured musics for now</div> :
                                 featured.map((music, index) => (music.section?.toLowerCase() === "Featured Music".toLowerCase()) ?
-                                    <div key={index} className="col-6 col-sm-3 home-song" onDoubleClick={() => {
-                                        audioPlayer.audioEl.current.pause();
-                                        audioPlayer.audioEl.current.src = music.song_name;
-
+                                    <div key={index} className="col-6 col-sm-3 home-song" onClick={() => {
+                                        /*audioPlayer.audioEl.current.pause();
+                                        audioPlayer.audioEl.current.src = music.song_name;*/
                                     }}>
-                                        <Link to={"/info/" + music.song_id}>
-                                            <div className="home-song--play">
-                                                Play
-                                            </div>
-                                            <div>
-                                                <img src={music.song_thumbnail} alt=""
-                                                     className="border-0 img-thumbnail home-song--cover"
-                                                     style={{padding: 0}}/>
-                                            </div>
-                                            <div className="home-song--info">
+                                        <div className="home-song--play">
+                                            Play
+                                        </div>
+                                        <div>
+                                            <img src={music.song_thumbnail} alt=""
+                                                 className="border-0 img-thumbnail home-song--cover"
+                                                 style={{padding: 0}}/>
+                                        </div>
+                                        <div className="home-song--info">
+                                            <Link to={"/album/" + music.album_id}>
                                                 <div className="home-song--title">{music.song_title}</div>
-                                                <div className="home-song--artist">{music.song_artist}</div>
-                                            </div>
-                                        </Link>
+                                            </Link>
+                                            <div className="home-song--artist">{music.song_artist}</div>
+                                        </div>
 
                                     </div> : <div key={index}/>
                                 )
@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section section-playlist"  style={{marginBottom: 0}}>
+            <div className="section section-playlist" style={{marginBottom: 0}}>
                 <div className="home-title">
                     <h3>Popular Playlists</h3>
                     <div className="home-title--divider"/>
@@ -118,7 +118,34 @@ const Home = () => {
                     <div className="home-title--divider"/>
                 </div>
                 <div className="container text-center">
-                    <img src="coming-soon.png" alt="coming soon" width="400" style={{margin: 0}}/>
+                    {/*<img src="coming-soon.png" alt="coming soon" width="400" style={{margin: 0}}/>*/}
+                    <div className="row text-center">
+                        {
+                            errorFeatured ? <div>No featured musics for now</div> :
+                                featured.map((music, index) => (music.section?.toLowerCase() === "Trending singles".toLowerCase()) ?
+                                    <div key={index} className="col-6 col-sm-3 home-song" onClick={() => {
+                                        /*audioPlayer.audioEl.current.pause();
+                                        audioPlayer.audioEl.current.src = music.song_name;*/
+                                    }}>
+                                        <div className="home-song--play">
+                                            Play
+                                        </div>
+                                        <div>
+                                            <img src={music.song_thumbnail} alt=""
+                                                 className="border-0 img-thumbnail home-song--cover"
+                                                 style={{padding: 0}}/>
+                                        </div>
+                                        <div className="home-song--info">
+                                            <Link to={"/album/" + music.album_id}>
+                                                <div className="home-song--title">{music.song_title}</div>
+                                            </Link>
+                                            <div className="home-song--artist">{music.song_artist}</div>
+                                        </div>
+
+                                    </div> : <div key={index}/>
+                                )
+                        }
+                    </div>
                 </div>
             </div>
 
