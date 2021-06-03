@@ -96,7 +96,9 @@ const Home = () => {
                             )
                     }
                 </div>*/}
-                    <img src="coming-soon.png" alt="coming soon" width="400" style={{margin: 0}}/>
+                <div className="home-comingsoon">
+                    <img src="coming-soon.png" alt="coming soon" />
+                </div>
                 </div>
             </div>
 
@@ -107,7 +109,7 @@ const Home = () => {
                 </div>
                 <br/>
                 <div className="text-center">
-                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" className="home-iframe">
                     </iframe>
                 </div>
             </div>

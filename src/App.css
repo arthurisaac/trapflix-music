@@ -56,6 +56,15 @@
 	text-transform: uppercase;
 }
 
+@media screen and (max-width: 400px) {
+	.home-title h3 {
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1.39;
+		text-transform: uppercase;
+	}
+}
+
 .home-title--divider {
 	width: 120px;
 	height: 2px;
@@ -128,6 +137,23 @@
 	text-decoration: none;
 }
 
+.home-iframe {
+	width: 60%;
+	height: 300px;
+}
+
+@media screen and (max-width: 700px) {
+	.home-iframe {
+		width: 100%;
+		height: 300px;
+	}
+}
+
+
+.home-comingsoon img {
+	width: 50%;
+}
+
 /*
 Detail song
  */
@@ -147,11 +173,6 @@ Detail song
 	box-shadow: 0 0 2px 1px #212121;
 }
 
-@media screen and (min-width: 44em) {
-	.detail-song--cover {
-		width: 252px;
-	}
-}
 
 * {
 	box-sizing: border-box;
@@ -218,6 +239,12 @@ input[type="range"] {
 }
 .detail-song--title {
 
+}
+
+@media screen and (max-width: 400px) {
+	.detail-song--title {
+		font-size: 20px;
+	}
 }
 
 @media screen and (max-width: 400px) {
