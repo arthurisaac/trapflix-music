@@ -70,7 +70,6 @@ class App extends Component {
                             <Nav.Link><Link to="/upload-your-work" style={{color: "#fff"}}>Upload</Link></Nav.Link>
                         </Nav>
                     </Navbar>
-                    <br/>
 
                     <Switch>
                         <Route path="/about">
@@ -101,18 +100,8 @@ class App extends Component {
                     <br/>
                     <br/>
                     <div className="trapflix-audio--player">
-                        {/*<AudioPlayer
-                        src={null}
-                        ref={(element) => {
-                            setAudioPlayer(element);
-                        }}
-                    />*/}
                         <ReactJkMusicPlayer
                             getAudioInstance={(instance) => {
-                                //setAudioPlayer(instance);
-                                /*this.setState({
-                                    "audioPlayer" : instance
-                                });*/
                                 this.audioInstance = instance
                             }}
                             mode="full"

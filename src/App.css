@@ -332,5 +332,70 @@ Audio player
 
 .highlight {
 	background-color: #f8f9fa;
-	padding: 1rem;
+	padding: 30px;
+}
+
+.file-input__input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.file-input__label {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px 12px;
+	width: 100%;
+	height: 200px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+	border: 2px dashed #bbb;
+}
+
+.file-input__label svg {
+	height: 16px;
+	margin-right: 4px;
+}
+
+.files-list {
+	display: flex;
+	justify-content: space-between;
+	margin: 8px;
+	padding: 10px;
+	border-bottom: 1px solid #bbb;
+}
+
+.files-list--index {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.files-box {
+	border: 2px dashed #adb5bd;
+	padding: 20px;
+}
+
+.upload-header {
+	background: url("./assets/musique.jpg") bottom;
+	background-size: cover;
+	height: 34vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	margin-bottom: 1rem;
+	padding: 20px;
+	color: #ffffff;
+}
+
+.upload-header img{
+	width: 30%;
+	height: auto;
 }

@@ -17,18 +17,26 @@ class UploadYourWork extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1 className="text-center">Welcome! Wanna be a star? Upload your work</h1>
-                <br/>
-                <br/>
-                <div>
-                    <h3>Add an album</h3>
-                    <Link to="/upload-your-album">Start</Link>
+                <div className="upload-header text-center">
+                    <br/>
+                    <br/>
+                    <img src="trapflix.jpeg" alt=""/>
+                    <br/>
+                    <br/>
+                    <h3>Welcome to trapflix Album Management!</h3>
+                </div>
+                <div className="text-center">
+                    <div className="text-center">
+                        <h4>This is a platform to upload your music to the trapflix App</h4>
+                        <br/>
+                        <Link to="/upload-your-album" className="btn btn-dark">Get started now !</Link>
+                    </div>
                 </div>
                 <br/>
                 <br/>
-                <div className="highlight">
-                    <h3>Add a single</h3>
-                    <form action="" noValidate>
+                {/*<div className="highlight">
+                    <h3>Add a song</h3>
+                    <form noValidate>
                         <div className="mb-3">
                             <label className="form-label">Album/Single name</label>
                             <input type="text" name="song_title" className="form-control" aria-describedby="titleHelp"
@@ -78,11 +86,10 @@ class UploadYourWork extends React.Component {
                                    onChange={this.onFileChange}/>
                             <div id="mp3Help" className="form-text">Your song must be mp3 file format</div>
                         </div>
-                        <button className="btn btn-primary" onClick={event => this.uploadSingle(event)}
-                                type="submit">Upload now
+                        <button className="btn btn-primary" onClick={event => this.uploadSingle(event)}>Upload now
                         </button>
                     </form>
-                </div>
+                </div>*/}
             </div>
         );
     }
@@ -116,7 +123,7 @@ class UploadYourWork extends React.Component {
                 alert("Uploaded successfully");
                 console.log(res);
             }).catch((err) => {
-                alert(JSON.stringify(err));
+            alert(JSON.stringify(err));
         });
     }
 }

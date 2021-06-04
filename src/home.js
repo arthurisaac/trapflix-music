@@ -39,7 +39,7 @@ const Home = () => {
         <div className="App">
             <br/>
             {
-                errorAds ? <div>Something wrong</div> : <div/>
+                errorAds ? <div className="text-center">Something wrong</div> : <div/>
             }
             {
                 ads.length > 0 ? <Carousel slides={adSlides()} autoplay={true} interval={3000}/> : <div/>
@@ -154,7 +154,7 @@ const Home = () => {
             <div className="section section-events">
                 <div>
                     <h3>Wanna be the next star?</h3>
-                    <Link to="/login" className="btn btn-light">Upload your work</Link>
+                    <Link to="/upload-your-work" className="btn btn-dark">Upload your work</Link>
                 </div>
 
             </div>
