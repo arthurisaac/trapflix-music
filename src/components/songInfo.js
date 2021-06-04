@@ -20,6 +20,7 @@ const SongInfo = React.forwardRef((props, ref) => {
                 setSongs(data);
                 addAudioOnList(data);
             });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const addAudioOnList = (data) => {

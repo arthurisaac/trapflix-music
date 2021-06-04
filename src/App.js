@@ -1,5 +1,5 @@
 import './App.css';
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Home from "./home";
 import SongInfo from "./components/songInfo";
-import AudioPlayer from "./AudioPlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Nav, Navbar} from "react-bootstrap";
 import About from "./components/about";

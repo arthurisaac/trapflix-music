@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {
-    useParams,
     withRouter
 } from "react-router-dom";
 import {base_url} from "../constants";

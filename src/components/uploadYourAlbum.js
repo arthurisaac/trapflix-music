@@ -156,7 +156,7 @@ class UploadYourAlbum extends React.Component {
     uploadSingle(event) {
         event.preventDefault();
 
-        const {song_title, song_artist, song_album, song_description, song_release_date, trapsong, cover} = this.state;
+        const {song_title, song_artist, song_description, song_release_date, trapsong, cover} = this.state;
         /*console.log(song_title);
         console.log(song_artist);
         console.log(song_album);

@@ -8,7 +8,6 @@ const Home = () => {
     const [errorAds, setErrorAds] = useState(false);
     const [featured, setFeatured] = useState([]);
     const [errorFeatured, setErrorFeatured] = useState(false);
-    const [audioPlayer] = useState(null);
     useEffect(() => {
         fetchFeatured().then(() => ('')).catch(() => setErrorFeatured(true));
     }, []);
@@ -30,9 +29,8 @@ const Home = () => {
     };
 
     const adSlides = () => {
-        const list = ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={ad.cover} alt=""
-                                                                              className="slide-image"/></Link>)
-        return list;
+        return ads.map((ad, index) => <Link to={"/album/" + ad.id}><img key={index} src={ad.cover} alt=""
+                                                                        className="slide-image"/></Link>);
     };
 
     return (
@@ -109,8 +107,7 @@ const Home = () => {
                 </div>
                 <br/>
                 <div className="text-center">
-                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" className="home-iframe">
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" className="home-iframe" title="exclusive video"/>
                 </div>
             </div>
 
